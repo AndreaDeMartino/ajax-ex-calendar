@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+li.holiday {
+    color: red;
+}
+
+i{
+    cursor: pointer;
+    font-size: 30px;
+}
