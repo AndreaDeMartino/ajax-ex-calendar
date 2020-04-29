@@ -6,13 +6,13 @@ $(document).ready(function () {
 	/**
 	 * SETUP
 	 */
-
+	alert('** ATTENZIONE **V1.0: PROGETTO ATTUALMENTE COMPATIBILE SOLO PER LE SEGUENTI RISOLUZIONI: IPHONE X - IPHONE 6/7/8 - GALAXY S5 - MOTO G4')
 	// Punto di partenza
 	var baseMonth = moment('2018-01-01');
 	var left = $('.left');
 	var right = $('.right')
 	// Init Hndlenars
-	var source = $('#day-template').html();
+	var source = $('#day--template').html();
 	var template = Handlebars.compile(source);
 
 	// print giorno
@@ -25,7 +25,7 @@ $(document).ready(function () {
 	left.click(function(){
 		if (baseMonth.month() > 0){
 			baseMonth = baseMonth.subtract(1,'M');
-			$('.month-list').children().remove();
+			$('.month--list').children().remove();
 			printMonth(template, baseMonth);
 			printHoliday(baseMonth);
 		} 
@@ -35,7 +35,7 @@ $(document).ready(function () {
 	right.click(function(){
 		if (baseMonth.month() < 11){
 		baseMonth = baseMonth.add(1,'M');
-		$('.month-list').children().remove();
+		$('.month--list').children().remove();
 		printMonth(template, baseMonth);
 		printHoliday(baseMonth);
 		}
@@ -54,10 +54,10 @@ function printMonth(template, date) {
 	var daysInMonth = date.daysInMonth();
 
 	//  setta header
-	$('h1').html( date.format('MMMM YYYY') );
-
+	// $('h1').html( date.format('MMMM YYYY') );
+	$('.header--years--year').html( date.format('YYYY') );
+	$('.month').html( date.format('MMMM') );
 	// Imposta data attribute data visualizzata
-	$('.month').attr('data-this-date',  date.format('YYYY-MM-DD'));
 
 	// genera giorni mese
 	for (var i = 0; i < daysInMonth; i++) {
@@ -71,13 +71,13 @@ function printMonth(template, date) {
 		// imposta dati template
 		var context = {
 			class: 'day',
-			day: thisDate.format('DD MMMM'),
+			day: thisDate.format('DD'),
 			completeDate: thisDate.format('YYYY-MM-DD')
 		};
 
 		//compilare e aggiungere template
 		var html = template(context);
-		$('.month-list').append(html);
+		$('.month--list').append(html);
 	}
 }
 
@@ -97,11 +97,11 @@ function printHoliday(date) {
 			for (var i = 0; i < holidays.length; i++) {
 				var thisHoliday = holidays[i];
 
-				var listItem = $('li[data-complete-date="' + thisHoliday.date + '"]');
+				var listItem = $('.day-box[data-complete-date="' + thisHoliday.date + '"]');
 
 				if(listItem) {
 					listItem.addClass('holiday');
-					listItem.text( listItem.text() + ' - ' + thisHoliday.name );
+					// listItem.text( listItem.text() + ' - ' + thisHoliday.name );
 				}
 			}
 		},

@@ -5,31 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/shared.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css'/>
 </head>
 
 <body>
-    
-    <div class="container">
-        <i class="left fas fa-angle-left"></i>
-        <h1 class="month"></h1>
-        <i class="right fas fa-angle-right"></i>
-        <ul class="month-list"></ul>
-    </div>
+  <div id="app" class="u-jura">
+
+    <header class="main--header">
+
+      <section class="header--banner u-relative">
+        <div class="banner--day">
+          <span class="banner--day--today">11</span>
+        </div>
+
+        <div class="banner--date">
+          <span class="banner--date--month">JANUARY</span>
+          <span class="banner--date--year">2018</span>
+        </div>
+
+        <div class="banner--weather">
+          <i class="fas fa-cloud-sun-rain"></i>
+          <span>14°</span>
+        </div>
+      </section>
+
+      <section class="header--date">
+
+        <div class="header--years u-flex-center">
+          <span class="header--years--year">2018</span>
+        </div>
+  
+        <div class="header--months">
+          <div class="header--months--left">
+            <i class="left fas fa-angle-left"></i>
+          </div>
+
+          <div class="header--months">
+            <span class="month">January</span>
+          </div>
+
+          <div class="header--months--right">
+            <i class="right fas fa-angle-right"></i>
+          </div>
+        </div>
+
+        <div class="header--days u-flex-center">
+          <ul class="days u-vanilla-list u-inline-block">
+            <li class="sun">Sun</li>
+            <li class="mon">Mon</li>
+            <li class="tue">Tue</li>
+            <li class="wed">Wed</li>
+            <li class="thu">Thu</li>
+            <li class="fri">Fri</li>
+            <li class="sat">Sat</li>
+          </ul>
+        </div>
+      </section>
+
+     
+      
+    </header>
 
 
-    <!-- TEMPLATES HANDLEBARS -->
-    <script id="day-template" type="text/x-handlebars-template">
-        <li class="{{ class }}" data-complete-date="{{ completeDate }}">
-            {{ day }}
-        </li>
-    </script>
 
 
-    <!-- JS -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
-    <script src="js/main.js"></script>
+    <main class="main--content u-padtop-s">
+      <div class="container">
+        <div class="month--list"></div>
+      </div>
+    </main>
+
+  </div>
+  
+
+
+  <!-- TEMPLATES HANDLEBARS -->
+  <script id="day--template" type="text/x-handlebars-template">
+    <span class="day-box {{ class }}" data-complete-date="{{ completeDate }}">
+      {{ day }}
+    </span>
+  </script>
+
+
+  <!-- JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

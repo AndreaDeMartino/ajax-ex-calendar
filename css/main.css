@@ -1,23 +1,149 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
-}
-
-.container {
-    margin: 0 auto;
-    text-align: center;
-}
-
-li.holiday {
-    color: red;
+/* General Rules */
+body{
+  background: rgb(0,10,36);
+  background: radial-gradient(circle, rgba(0,10,36,1) 0%, rgba(224,223,217,1) 0%, rgba(134,100,59,1) 82%);
 }
 
 i{
-    cursor: pointer;
-    font-size: 30px;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+  cursor: pointer;
 }
+
+i:hover{
+  opacity: 1;
+  color: #fff;
+}
+/* Utility */
+
+/* App */
+#app{
+  max-width: 400px;
+  min-height: 812px;
+  margin: 0 auto;
+  color: #c7c3c3;
+  background: #2f2f2f;
+}
+
+/* Header */
+.main--header{
+  display: flex;
+  flex-direction: column;
+  max-height: 550px;
+  background: #232323;
+}
+
+/* SECTION: Banner */
+.header--banner{
+  height: 180px;
+  display: flex;
+  align-items: center;
+  background: #f26522;
+  color: #e9e3e3;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.banner--day{
+  margin: 0 20px 0 10px;
+}
+
+.banner--day--today{
+  font-size: 70px;
+  border: 2px solid #e9e3e3;
+  padding: 5px 20px;
+  border-radius: 50%;
+}
+
+.banner--date{
+  width: 130px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.banner--weather{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.banner--weather i{
+  color: #c7c3c3;
+  opacity: 1;
+}
+
+
+/* SECTION: Date */
+.header--date{
+  height: 200px;
+  background-image: url('../img/header.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header--years{
+  height: 80px;
+}
+
+.header--years--year{
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.header--months{
+  height: 75px;
+  margin: 0 10px;
+  font-size: 40px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header--days{
+  height: 45px;
+}
+
+.header--days .days li{
+  padding-right: 20px;
+}
+
+.days li:last-child{
+  padding-right: 0;
+}
+
+
+
+
+
+/* Main */
+.main--content{
+  background: #2f2f2f;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.month--list{
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.day{
+  min-width: 50px;
+  padding-left: 10px;
+  font-size: 30px;
+}
+
+.day.holiday {
+  color: #f26522;
+  cursor: pointer;
+}
+
