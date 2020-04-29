@@ -147,3 +147,20 @@ i:hover{
   cursor: pointer;
 }
 
+.holiday--name{
+  display: none;
+  position: absolute;
+  text-align: center;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  min-width: 200px;
+  padding: 5px;
+  font-size: 20px;
+  background: #2f2f2f;
+  color: #f26522;
+  box-shadow: 0 0 1px rgba(224,223,217,0.3);
+  border-radius: 10px;
+}
+

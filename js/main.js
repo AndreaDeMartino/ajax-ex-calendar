@@ -28,6 +28,7 @@ $(document).ready(function () {
 			$('.month--list').children().remove();
 			printMonth(template, baseMonth);
 			printHoliday(baseMonth);
+			$('.holiday--name').fadeOut('fast');
 		} 
 	})
 
@@ -38,9 +39,38 @@ $(document).ready(function () {
 		$('.month--list').children().remove();
 		printMonth(template, baseMonth);
 		printHoliday(baseMonth);
+		$('.holiday--name').fadeOut();
 		}
 	})
 
+	
+	$('#app').on('click', '.holiday', function(){
+		var holidayClicked = moment($(this).attr('data-complete-date'));
+		$('.holiday--name').hide();
+		$.ajax({
+			url: 'https://flynn.boolean.careers/exercises/api/holidays' ,
+			method: 'GET',
+			data: {
+					year: holidayClicked.year(),
+					month: holidayClicked.month(),
+			},
+			success: function(res) {
+				var holidayName = res.response;
+
+				for (var i = 0; i < holidayName.length; i++){
+					if (holidayName[i].date == holidayClicked.format('YYYY-MM-DD')){
+						var holidayToShow = (holidayName[i].name);
+						console.log(holidayToShow);
+						$('.holiday--name').text(holidayToShow).slideDown();
+					};
+				}
+			},
+			error: function() {
+				console.log('Errore chiamata festività');
+			}
+		});
+	})
+		
 }); // <-- End doc ready
 
 
