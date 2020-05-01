@@ -9,8 +9,8 @@ $(document).ready(function () {
 	alert('** ATTENZIONE **V1.0: PROGETTO ATTUALMENTE COMPATIBILE SOLO PER LE SEGUENTI RISOLUZIONI: IPHONE X - IPHONE 6/7/8 - GALAXY S5 - MOTO G4')
 	// Punto di partenza
 	var baseMonth = moment('2018-01-01');
-	var left = $('.left');
-	var right = $('.right')
+	var left = $('.header--months--left');
+	var right = $('.header--months--right')
 	// Init Hndlenars
 	var source = $('#day--template').html();
 	var template = Handlebars.compile(source);

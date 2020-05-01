@@ -103,6 +103,16 @@ i:hover{
   align-items: center;
 }
 
+.header--months--left{
+  width: calc(100% / 3);
+  text-align: right;
+}
+
+.header--months--right{
+  width: calc(100% / 3);
+  text-align: left;
+}
+
 .header--days{
   height: 45px;
 }
