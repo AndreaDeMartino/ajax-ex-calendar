@@ -10,15 +10,16 @@ i{
   cursor: pointer;
 }
 
-i:hover{
+#app i:hover{
   opacity: 1;
   color: #fff;
 }
+
 /* Utility */
 
 /* App */
 #app{
-  max-width: 400px;
+  max-width: 370px;
   min-height: 812px;
   margin: 0 auto;
   color: #c7c3c3;
@@ -61,6 +62,10 @@ i:hover{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.banner--date--month{
+  min-width: 150px;
 }
 
 .banner--weather{
@@ -114,11 +119,15 @@ i:hover{
 }
 
 .header--days{
+  display: flex;
+  align-items: center;
   height: 45px;
+  padding-left: 15px;
 }
 
 .header--days .days li{
-  padding-right: 20px;
+  width: 45px;
+  text-align: center;
 }
 
 .days li:last-child{
@@ -141,15 +150,15 @@ i:hover{
 
 .month--list{
   display: flex;
-  padding-left: 10px;
   align-items: center;
   flex-wrap: wrap;
+  padding-left: 15px;
 }
 
 .day{
-  min-width: 50px;
-  padding-left: 10px;
+  width: 45px;
   font-size: 30px;
+  margin-right: 4px;
 }
 
 .day.holiday {

@@ -6,7 +6,7 @@ $(document).ready(function () {
 	/**
 	 * SETUP
 	 */
-	alert('** ATTENZIONE **V1.0: PROGETTO ATTUALMENTE COMPATIBILE SOLO PER LE SEGUENTI RISOLUZIONI: IPHONE X - IPHONE 6/7/8 - GALAXY S5 - MOTO G4')
+	// alert('** ATTENZIONE **V1.0: PROGETTO ATTUALMENTE COMPATIBILE SOLO PER LE SEGUENTI RISOLUZIONI: IPHONE X - IPHONE 6/7/8 - GALAXY S5 - MOTO G4')
 	// Punto di partenza
 	var baseMonth = moment('2018-01-01');
 	var left = $('.header--months--left');
@@ -14,6 +14,7 @@ $(document).ready(function () {
 	// Init Hndlenars
 	var source = $('#day--template').html();
 	var template = Handlebars.compile(source);
+	var firstDay = 1;
 
 	// print giorno
 	printMonth(template, baseMonth);
@@ -24,6 +25,10 @@ $(document).ready(function () {
 	// Left Click
 	left.click(function(){
 		if (baseMonth.month() > 0){
+			left.find('i').css('opacity','1');
+			setTimeout(function(){
+				left.find('i').css('opacity','0.3');
+			}, 300)	
 			baseMonth = baseMonth.subtract(1,'M');
 			$('.month--list').children().remove();
 			printMonth(template, baseMonth);
@@ -35,6 +40,12 @@ $(document).ready(function () {
 	// Right Click
 	right.click(function(){
 		if (baseMonth.month() < 11){
+		right.find('i').css('opacity','1');
+		setTimeout(function() {
+        right.find('i').css('opacity','0.3');
+    }, 300);
+		
+		
 		baseMonth = baseMonth.add(1,'M');
 		$('.month--list').children().remove();
 		printMonth(template, baseMonth);
@@ -84,10 +95,8 @@ function printMonth(template, date) {
 	var daysInMonth = date.daysInMonth();
 
 	//  setta header
-	// $('h1').html( date.format('MMMM YYYY') );
 	$('.header--years--year').html( date.format('YYYY') );
 	$('.month').html( date.format('MMMM') );
-	// Imposta data attribute data visualizzata
 
 	// genera giorni mese
 	for (var i = 0; i < daysInMonth; i++) {
@@ -97,7 +106,6 @@ function printMonth(template, date) {
 			month: date.month(),
 			day: i + 1
 		});
-
 		// imposta dati template
 		var context = {
 			class: 'day',
@@ -108,7 +116,11 @@ function printMonth(template, date) {
 		//compilare e aggiungere template
 		var html = template(context);
 		$('.month--list').append(html);
+		if (i == 0){
+			firstDay = 50 * (thisDate.format('d'));
+		}
 	}
+	$('.day-box').first().css('margin-left',firstDay);
 }
 
 // Ottieni e stampa festività
@@ -125,13 +137,11 @@ function printHoliday(date) {
 			var holidays = res.response;
 
 			for (var i = 0; i < holidays.length; i++) {
-				var thisHoliday = holidays[i];
 
-				var listItem = $('.day-box[data-complete-date="' + thisHoliday.date + '"]');
+				var listItem = $('.day-box[data-complete-date="' + holidays[i].date + '"]');
 
 				if(listItem) {
 					listItem.addClass('holiday');
-					// listItem.text( listItem.text() + ' - ' + thisHoliday.name );
 				}
 			}
 		},
