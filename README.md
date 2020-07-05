@@ -8,7 +8,7 @@
 
 
 
-### :man_teacher: *BOOL TASK* 
+### :man_teacher: *TASKS* 
 
 Dopo aver generato il calendario, ogni volta che cambio mese dovrò:
 
@@ -16,13 +16,8 @@ Dopo aver generato il calendario, ogni volta che cambio mese dovrò:
 2. Controllare quanti giorni ha il mese scelto formando così una lista
 3. Chiedere all’api quali sono le festività per il mese scelto
 4. Evidenziare le festività nella lista
-
-BONUS OPZIONALE:
-
-1. Trasformare la lista precedente in un vero e proprio calendario, generando una griglia che segua l’andamento dei giorni di un mese a scelta, evidenziando le festività.`
-2. Creare dei bottoni che permettano di spostarsi di mese in mese, rigenerando ogni volta la griglia e le festività associate
-
-
+5. Trasformare la lista precedente in un vero e proprio calendario, generando una griglia che segua l’andamento dei giorni di un mese a scelta, evidenziando le festività.`
+6. Creare dei bottoni che permettano di spostarsi di mese in mese, rigenerando ogni volta la griglia e le festività associate
 
 ### :computer: Languages and Libraries:
 
